@@ -1,14 +1,14 @@
 import { Stack, Typography, Box, Container } from "@mui/material";
 import React from "react";
 
-function KudosChart() {
+function KudosChart({ winnerArr }) {
   return (
     <>
-      <Container>
+      <Stack alignItems="center">
         {" "}
         <Stack alignItems="center">
-          <Typography textAlign="center" fontFamily="Space Mono">
-            <strong>Tim M.</strong> is the king of the hill with{" "}
+          <Typography textAlign="center" sx={{ pb: 3 }} fontFamily="Space Mono">
+            <strong>Tim M.</strong> is the King of the Hill with{" "}
             <strong>29</strong> kudos!
           </Typography>
         </Stack>
@@ -48,7 +48,14 @@ function KudosChart() {
             </Typography>
           </Box>
         </Stack>
-      </Container>
+        <Box
+          height="2px"
+          sx={{
+            width: { xs: "425px", md: "480px", lg: "500px" },
+          }}
+          bgcolor="#fff"
+        ></Box>
+      </Stack>
     </>
   );
 }
