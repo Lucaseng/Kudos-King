@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import Test from "./Test";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { lime, purple } from "@mui/material/colors";
+import KudosChart from "./KudosChart";
 
 /*const theme = createTheme({
   palette: {
@@ -29,7 +30,7 @@ function HomePage() {
     <>
       <ThemeProvider theme={theme}>
         <Navigation></Navigation>
-        <Test></Test>
+        <KudosChart />
       </ThemeProvider>
     </>
   );

@@ -14,7 +14,9 @@ function Navigation() {
           >
             KUDOS KING
           </Typography>
-          <Typography sx={{ pl: 1 }}>v1</Typography>
+          <Typography fontFamily={"Space Mono"} sx={{ pl: 1 }}>
+            v1
+          </Typography>
         </Toolbar>
       </AppBar>
     </>
