@@ -5,6 +5,7 @@
 
 An application which uses the Strava API to determine who has given the signed-in user the most Kudos within the last four weeks.
 
+![image](https://github.com/Lucaseng/Kudos-King/assets/26078574/896537de-b2f2-402f-864c-41ca213c6eb9)
 ![image](https://github.com/Lucaseng/Kudos-King/assets/26078574/3a4eac2b-0ba5-41e4-b208-447af1254d49)
 
 
