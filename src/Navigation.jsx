@@ -32,7 +32,7 @@ function Navigation() {
 
   return (
     <>
-      <AppBar color="primary" sx={{ mb: 3 }} position="static">
+      <AppBar color="primary" position="absolute">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <span style={{ display: "flex", alignItems: "center" }}>
             <Typography
@@ -49,7 +49,7 @@ function Navigation() {
           </span>
           <Box>
             <IconButton onClick={handleClick}>
-              <Avatar />
+              <Avatar sx={{ backgroundColor: "#000", color: "primary" }} />
             </IconButton>
             <Menu
               anchorEl={anchorEl}
