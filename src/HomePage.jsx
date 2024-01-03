@@ -32,7 +32,7 @@ function HomePage() {
               <Typography
                 color="primary.main"
                 textTransform={"uppercase"}
-                fontSize={"4em"}
+                fontSize={"1.5em"}
                 variant="h1"
                 sx={{ textAlign: "left", p: 3 }}
               >
@@ -58,8 +58,13 @@ function HomePage() {
             justifyContent="center"
             height="100%"
           >
-            <Button textTransform="none" variant="contained" href="/results">
-              <Typography variant="h5">
+            <Button
+              sx={{ m: 3 }}
+              textTransform="none"
+              variant="contained"
+              href="#/results"
+            >
+              <Typography fontSize={"1.5em"} variant="h5">
                 <strong>Sign in with Strava to continue</strong>
               </Typography>
             </Button>
