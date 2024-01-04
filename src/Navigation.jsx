@@ -15,10 +15,12 @@ import {
   Divider,
 } from "@mui/material";
 import { Settings, Logout } from "@mui/icons-material";
+import { useAuth } from "./AuthContext";
 
 function Navigation() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [profileMenuOpen, setProfileMenuOpen] = React.useState(false);
+  const { user, login, logout, isLoggedIn } = useAuth();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -49,7 +51,7 @@ function Navigation() {
           </span>
           <Box>
             <IconButton onClick={handleClick}>
-              <Avatar sx={{ backgroundColor: "#000", color: "primary" }} />
+              {isLoggedIn ? <Avatar src={user.profile} /> : <Avatar />}
             </IconButton>
             <Menu
               anchorEl={anchorEl}
@@ -87,15 +89,20 @@ function Navigation() {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem>
-                <Avatar /> Lucas E.
+                {isLoggedIn ? <Avatar src={user.profile} /> : <Avatar />}
+                {isLoggedIn ? `${user.firstname} ${user.lastname}` : "User"}
               </MenuItem>
               <Divider />
 
-              <MenuItem>
+              <MenuItem
+                onClick={() => {
+                  logout();
+                }}
+              >
                 <ListItemIcon>
                   <Logout fontSize="small" />
                 </ListItemIcon>
-                Logout
+                {isLoggedIn ? `Logout` : "Login"}
               </MenuItem>
             </Menu>
           </Box>

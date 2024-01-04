@@ -1,8 +1,6 @@
 import React from "react";
-import Navigation from "./Navigation";
-import Test from "./Test";
+import { useAuth } from "./AuthContext";
 
-import KudosChart from "./KudosChart";
 import {
   Typography,
   Box,
@@ -12,7 +10,9 @@ import {
   Stack,
   Grid,
 } from "@mui/material";
+
 function HomePage() {
+  const { user, login, logout, isLoggedIn } = useAuth();
   return (
     <>
       <Grid container>
@@ -60,9 +60,8 @@ function HomePage() {
           >
             <Button
               sx={{ m: 3 }}
-              textTransform="none"
               variant="contained"
-              href="#/results"
+              href="https://www.strava.com/oauth/authorize?client_id=118798&response_type=code&redirect_uri=http://localhost:5173/redirect/exchange_token&approval_prompt=force&scope=activity:read_all,profile:read_all"
             >
               <Typography fontSize={"1.5em"} variant="h5">
                 <strong>Sign in with Strava to continue</strong>
