@@ -22,7 +22,8 @@ function Redirect() {
     )
       .then((response) => response.json())
       .then((json) => {
-        login(json.athlete);
+        //console.log(json);
+        login(json.athlete, json.access_token);
       })
       .catch((error) => console.error(error));
     navigate("/results", { replace: true });
