@@ -8,6 +8,7 @@ import KudosChart from "./KudosChart.jsx";
 import Redirect from "./Redirect.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./AuthContext.jsx";
+import Results from "./Results.jsx";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Navigation></Navigation>
           <Routes>
             <Route path="/" element={<HomePage />} exact />
-            <Route path="/results" element={<KudosChart />} exact />
+            <Route path="/results" element={<Results />} exact />
             <Route
               path="/redirect/exchange_token"
               element={<Redirect />}
