@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 import {
   Typography,
@@ -12,6 +13,7 @@ import {
 } from "@mui/material";
 
 function HomePage() {
+  const navigate = useNavigate();
   const { user, login, logout, isLoggedIn } = useAuth();
   return (
     <>
@@ -36,7 +38,11 @@ function HomePage() {
                 variant="h1"
                 sx={{ textAlign: "left", p: 3 }}
               >
-                <strong>Who's your king of the hill?</strong>
+                <strong>
+                  {" "}
+                  {isLoggedIn && <span>{user.firstname}, </span>}Who's your king
+                  of the hill?
+                </strong>
               </Typography>
             </Box>
           </Paper>
@@ -58,15 +64,29 @@ function HomePage() {
             justifyContent="center"
             height="100%"
           >
-            <Button
-              sx={{ m: 3 }}
-              variant="contained"
-              href="https://www.strava.com/oauth/authorize?client_id=118798&response_type=code&redirect_uri=http://localhost:5173/redirect/exchange_token&approval_prompt=force&scope=activity:read_all,profile:read_all"
-            >
-              <Typography fontSize={"1.5em"} variant="h5">
-                <strong>Sign in with Strava to continue</strong>
-              </Typography>
-            </Button>
+            {!isLoggedIn ? (
+              <Button
+                sx={{ m: 3 }}
+                variant="contained"
+                href={import.meta.env.VITE_OAUTH_URL}
+              >
+                <Typography fontSize={"1.5em"} variant="h5">
+                  <strong>Sign in with Strava to continue</strong>
+                </Typography>
+              </Button>
+            ) : (
+              <Button
+                sx={{ m: 3 }}
+                variant="contained"
+                onClick={() => {
+                  navigate("/results", { replace: true });
+                }}
+              >
+                <Typography fontSize={"1.5em"} variant="h5">
+                  <strong>View your results now</strong>
+                </Typography>
+              </Button>
+            )}
           </Box>
         </Grid>
       </Grid>

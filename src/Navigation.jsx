@@ -16,11 +16,13 @@ import {
 } from "@mui/material";
 import { Settings, Logout } from "@mui/icons-material";
 import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Navigation() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [profileMenuOpen, setProfileMenuOpen] = React.useState(false);
   const { user, login, logout, isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,7 +38,12 @@ function Navigation() {
     <>
       <AppBar color="primary" position="absolute">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <span style={{ display: "flex", alignItems: "center" }}>
+          <span
+            style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+            onClick={() => {
+              navigate("/", { replace: true });
+            }}
+          >
             <Typography
               sx={{
                 fontWeight: 700,
@@ -49,6 +56,7 @@ function Navigation() {
               v1
             </Typography>
           </span>
+
           <Box>
             <IconButton onClick={handleClick}>
               {isLoggedIn ? <Avatar src={user.profile} /> : <Avatar />}
@@ -96,7 +104,12 @@ function Navigation() {
 
               <MenuItem
                 onClick={() => {
-                  logout();
+                  if (isLoggedIn) {
+                    logout();
+                    navigate("/", { replace: true });
+                  } else {
+                    window.location.replace(import.meta.env.VITE_OAUTH_URL);
+                  }
                 }}
               >
                 <ListItemIcon>
