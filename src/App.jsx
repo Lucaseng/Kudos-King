@@ -13,8 +13,8 @@ import Results from "./Results.jsx";
 function App() {
   return (
     <>
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
           <Navigation></Navigation>
           <Routes>
             <Route path="/" element={<HomePage />} exact />
@@ -25,8 +25,8 @@ function App() {
               exact
             />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </>
   );
 }

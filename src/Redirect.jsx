@@ -23,7 +23,7 @@ function Redirect() {
       .then((response) => response.json())
       .then((json) => {
         //console.log(json);
-        login(json.athlete, json.access_token);
+        login(json.athlete, json.access_token, json.expires_at);
       })
       .catch((error) => console.error(error));
     navigate("/results", { replace: true });
