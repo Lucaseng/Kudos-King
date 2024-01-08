@@ -24,9 +24,9 @@ function Redirect() {
       .then((json) => {
         //console.log(json);
         login(json.athlete, json.access_token, json.expires_at);
+        navigate("/results", { replace: true });
       })
       .catch((error) => console.error(error));
-    navigate("/results", { replace: true });
   }, []);
 
   return <Typography color="#fff">redirecting...</Typography>;

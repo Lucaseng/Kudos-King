@@ -23,7 +23,10 @@ export const AuthProvider = ({ children }) => {
     return tokenExpiry ? tokenExpiry : null;
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser !== null && storedUser !== undefined;
+  });
 
   useEffect(() => {
     // Save user data to localStorage whenever the user state changes
