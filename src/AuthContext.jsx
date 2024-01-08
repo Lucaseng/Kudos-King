@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("user");
       localStorage.removeItem("token");
       localStorage.removeItem("token_expiry");
+      localStorage.removeItem("kudoerDict");
       setIsLoggedIn(false);
     }
   }, [user]);
