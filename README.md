@@ -10,7 +10,7 @@ An application which uses the Strava API to determine who has given the signed-i
 ## Alternative Homepage (Logged In)
 ![Alternative Homepage (Logged In)](https://github.com/Lucaseng/Kudos-King/assets/26078574/09ae59fa-b139-4aa8-8005-2c3aa2af5733)
 ## Results
-![Results](https://github.com/Lucaseng/Kudos-King/assets/26078574/a63de1da-3848-4e3e-964b-58f7acc30333)
+![Screenshot 2024-01-09 at 8 30 32 PM](https://github.com/Lucaseng/Kudos-King/assets/26078574/1b454c3c-9e51-4ccc-ab62-221b68f970ce)
 
 ## Frontend Development
 The frontend was written using React.js and MUI.
