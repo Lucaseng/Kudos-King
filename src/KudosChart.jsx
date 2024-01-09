@@ -1,15 +1,15 @@
 import { Stack, Typography, Box, Container } from "@mui/material";
 import React from "react";
 
-function KudosChart({ winnerArr }) {
+function KudosChart({ kudosArr }) {
   return (
     <>
       <Stack alignItems="center">
         {" "}
         <Stack alignItems="center">
-          <Typography textAlign="center" sx={{ pb: 3 }} fontFamily="Space Mono">
-            <strong>Tim M.</strong> is the King of the Hill with{" "}
-            <strong>29</strong> kudos!
+          <Typography textAlign="center" fontFamily="Space Mono">
+            <strong>{kudosArr[0][0]}</strong> is the King of the Hill with{" "}
+            <strong>{kudosArr[0][1]}</strong> kudos!
           </Typography>
         </Stack>
         <Stack
@@ -20,33 +20,85 @@ function KudosChart({ winnerArr }) {
           spacing={2}
           sx={{ display: "flex" }}
         >
-          <Box height="30vh" width="120px" bgcolor="#60D394">
+          <Stack>
             <Typography
+              fontWeight="700"
               fontFamily={"Space Mono"}
-              sx={{ padding: "10px", color: "#fff" }}
-              align="center"
+              textAlign="center"
             >
-              #2
+              {kudosArr[1][0]}
             </Typography>
-          </Box>
-          <Box height="40vh" width="120px" bgcolor="primary.main">
+            <Box
+              alignItems="flex-end"
+              height="13vh"
+              width="120px"
+              bgcolor="#60D394"
+            >
+              <Typography
+                fontFamily={"Space Mono"}
+                sx={{ padding: "10px", color: "#000" }}
+                align="center"
+              >
+                #2
+              </Typography>
+              <Typography
+                color="#000"
+                fontFamily={"Space Mono"}
+                textAlign="center"
+              >
+                {kudosArr[1][1]} Kudos
+              </Typography>
+            </Box>
+          </Stack>
+
+          <Stack>
             <Typography
+              fontWeight="700"
               fontFamily={"Space Mono"}
-              sx={{ padding: "10px", color: "#fff" }}
-              align="center"
+              textAlign="center"
             >
-              #1
+              {kudosArr[0][0]}
             </Typography>
-          </Box>
-          <Box height="30vh" width="120px" bgcolor="#60D394">
+
+            <Box height="20vh" width="120px" bgcolor="primary.main">
+              <Typography
+                fontFamily={"Space Mono"}
+                sx={{ padding: "10px", color: "#fff" }}
+                align="center"
+              >
+                #1
+              </Typography>
+              <Typography fontFamily={"Space Mono"} textAlign="center">
+                {kudosArr[0][1]} Kudos
+              </Typography>
+            </Box>
+          </Stack>
+
+          <Stack>
             <Typography
+              fontWeight="700"
               fontFamily={"Space Mono"}
-              sx={{ padding: "10px", color: "#fff" }}
-              align="center"
+              textAlign="center"
             >
-              #3
+              {kudosArr[2][0]}
             </Typography>
-          </Box>
+            <Box height="13vh" width="120px" bgcolor="#60D394">
+              <Typography
+                fontFamily={"Space Mono"}
+                sx={{ padding: "10px", color: "#000" }}
+                align="center"
+              >
+                #3
+              </Typography>
+              <Typography
+                color="#000"
+                fontFamily={"Space Mono"}
+                textAlign="center"
+              >
+                {kudosArr[2][1]} Kudos
+              </Typography>
+            </Box>
+          </Stack>
         </Stack>
         <Box
           height="2px"

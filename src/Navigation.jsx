@@ -36,7 +36,7 @@ function Navigation() {
 
   return (
     <>
-      <AppBar color="primary" position="absolute">
+      <AppBar color="primary" position="static">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <span
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
