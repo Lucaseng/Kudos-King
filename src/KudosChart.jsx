@@ -8,7 +8,7 @@ function KudosChart({ kudosArr }) {
         {" "}
         <Stack alignItems="center">
           <Typography textAlign="center" fontFamily="Space Mono">
-            <strong>{kudosArr[0][0]}</strong> is the King of the Hill with{" "}
+            <strong>{kudosArr[0][0]}</strong> is the King of the Hill dealing{" "}
             <strong>{kudosArr[0][1]}</strong> kudos!
           </Typography>
         </Stack>
