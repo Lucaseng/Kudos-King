@@ -10,6 +10,14 @@ import React, { useEffect, useState } from "react";
 import KudosChart from "./KudosChart";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
+import { BarChart } from "@mui/x-charts";
+import { ArrowRight } from "@mui/icons-material";
+import {
+  blueberryTwilightPalette,
+  mangoFusionPalette,
+  cheerfulFiestaPalette,
+  blueberryTwilightPaletteLight,
+} from "@mui/x-charts/colorPalettes";
 
 function Results() {
   const [isReady, setIsReady] = useState(false);
@@ -20,6 +28,7 @@ function Results() {
     const storedDict = localStorage.getItem("kudoerDict");
     return storedDict ? JSON.parse(storedDict) : {};
   });
+  const [kudoerArrSplit, setKudoerArrSplit] = useState([]);
 
   const [kudoerArr, setKudoerArr] = useState([]);
 
@@ -37,6 +46,17 @@ function Results() {
     myArr.sort((a, b) => b[1] - a[1]);
 
     setKudoerArr(myArr);
+    kudoArrSplitter(myArr);
+  };
+
+  const kudoArrSplitter = (arr) => {
+    const kudoArrNames = [];
+    const kudoArrValues = [];
+    arr.forEach((i) => {
+      kudoArrNames.push(i[0]);
+      kudoArrValues.push(i[1]);
+    });
+    setKudoerArrSplit([kudoArrNames, kudoArrValues]);
   };
 
   useEffect(() => {
@@ -80,10 +100,6 @@ function Results() {
           );
 
           localStorage.setItem("kudoerDict", JSON.stringify(myDict));
-        } else {
-          console.log(
-            "You've already made the API calls! The dictionary already exists in local storage!"
-          );
         }
 
         setKudoerDict(myDict);
@@ -110,15 +126,42 @@ function Results() {
             sx={{ mt: 5 }}
           >
             <KudosChart kudosArr={kudoerArr}></KudosChart>
-            <ol>
-              {kudoerArr.map((athlete) => (
-                <Typography fontFamily={"Space Mono"}>
-                  <li key={athlete}>
-                    {athlete[0]} - {athlete[1]} Kudos
-                  </li>
-                </Typography>
-              ))}
-            </ol>
+            <Container sx={{ display: "flex", justifyContent: "center" }}>
+              <BarChart
+                sx={{
+                  p: 5,
+                  //change left yAxis label styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.4",
+                    fill: "#fff",
+                  },
+                  // change all labels fontFamily shown on both xAxis and yAxis
+                  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
+                    fontFamily: "Space Mono",
+                  },
+                  // change bottom label styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.5",
+                    fill: "#fff",
+                  },
+                  // bottomAxis Line Styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                    stroke: "#fff",
+                    strokeWidth: 2,
+                  },
+                  // leftAxis Line Styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                    stroke: "#fff",
+                    strokeWidth: 2,
+                  },
+                }}
+                yAxis={[{ scaleType: "band", data: kudoerArrSplit[0] }]}
+                series={[{ data: kudoerArrSplit[1] }]}
+                height={600}
+                layout="horizontal"
+                colors={["#FC4C02"]}
+              />
+            </Container>
           </Box>
         </>
       ) : (
