@@ -129,7 +129,11 @@ function Results() {
             <Container sx={{ display: "flex", justifyContent: "center" }}>
               <BarChart
                 sx={{
-                  p: 5,
+                  pb: {
+                    xs: 20,
+                    md: 10,
+                    lg: 6,
+                  },
                   //change left yAxis label styles
                   "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
                     strokeWidth: "0.4",
