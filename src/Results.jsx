@@ -123,15 +123,24 @@ function Results() {
         </>
       ) : (
         <>
-          <Typography
-            textTransform="uppercase"
-            fontSize="1em"
-            textAlign="center"
-            sx={{ pb: 1 }}
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="center"
+            style={{ height: "100vh" }}
           >
-            <strong>Hold tight - This will only take a second!</strong>
-          </Typography>
-          <LinearProgress></LinearProgress>
+            <Grid item>
+              <Typography
+                textTransform="uppercase"
+                fontSize="1em"
+                textAlign="center"
+                sx={{ pb: 1 }}
+              >
+                <strong>Hold tight - This will only take a second!</strong>
+              </Typography>
+              <LinearProgress></LinearProgress>
+            </Grid>
+          </Grid>
         </>
       )}
     </>
