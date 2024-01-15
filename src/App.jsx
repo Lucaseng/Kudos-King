@@ -13,20 +13,14 @@ import Results from "./Results.jsx";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <AuthProvider>
-          <Navigation></Navigation>
-          <Routes>
-            <Route path="/" element={<HomePage />} exact />
-            <Route path="/results" element={<Results />} exact />
-            <Route
-              path="/redirect/exchange_token"
-              element={<Redirect />}
-              exact
-            />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
+      <AuthProvider>
+        <Navigation></Navigation>
+        <Routes>
+          <Route path="/" element={<HomePage />} exact />
+          <Route path="/results" element={<Results />} exact />
+          <Route path="/redirect/exchange_token" element={<Redirect />} exact />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

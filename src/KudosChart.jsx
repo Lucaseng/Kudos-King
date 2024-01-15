@@ -2,6 +2,23 @@ import { Stack, Typography, Box, Container } from "@mui/material";
 import React from "react";
 
 function KudosChart({ kudosArr }) {
+  if (kudosArr.length == 0) {
+    <>
+      <Typography textAlign="center" fontFamily="Space Mono">
+        You don't have enough data!
+      </Typography>
+    </>;
+  }
+  if (kudosArr.length > 0 && kudosArr.length < 3) {
+    return (
+      <>
+        <Typography textAlign="center" fontFamily="Space Mono">
+          <strong>{kudosArr[0][0]}</strong> is the King of the Hill dealing{" "}
+          <strong>{kudosArr[0][1]}</strong> kudos!
+        </Typography>
+      </>
+    );
+  }
   return (
     <>
       <Stack alignItems="center">
